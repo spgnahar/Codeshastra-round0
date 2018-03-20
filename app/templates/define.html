@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+<div class="top-content">
+            
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-1 text">
+                            <div class="description">
+                                <!--    -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-1 form-box">
+                            <div class="form-top">
+                            	
+<ul class="mui-tabs__bar mui-tabs__bar--justified">
+  <li class="mui--is-active"><a a href="/jargon" data-mui-toggle="tab" data-mui-controls="pane-justified-1">JARGON</a></li>
+
+  <li><a a href="/forum" data-mui-toggle="tab" data-mui-controls="pane-justified-2">FORUM</a></li>
+</ul>
+
+<!-- <div class="mui-tabs__pane mui--is-active" id="pane-justified-1">Pane-1 hveq </div> -->
+<div class="mui-tabs__pane" id="pane-justified-2">Pane-2</div>
+
+<ul class="mui-tabs__bar mui-tabs__bar--justified">
+  <li class="mui--is-active"><a a href="/define" data-mui-toggle="tab" data-mui-controls="pane-justified-1.1">DEFINITION</a></li>
+  <li><a a href="/youtube" data-mui-toggle="tab" data-mui-controls="pane-justified-1.2">YOUTUBE</a>
+  </li>
+  <li><a a href="/courses" data-mui-toggle="tab" data-mui-controls="pane-justified-1.2">COURSERA</a></li>
+</ul>
+<div class="mui-tabs__pane mui--is-active" id="pane-justified-1.1">
+</br>
+						<!-- <div class="form-bottom contact-form">
+                                <form role="form" action="/def" method="post">{% csrf_token %}
+                                    <div class="form-group">
+                                        <label class="sr-only" for="contact-email">Lookup a word: </label>
+                                        <input type="text" name="textfield">
+                                    </div>
+                                    <div class="col-sm-8 col-sm-offset-4 form-box">
+
+                                    <button type="submit">Upload Text</button>
+                                </div>
+                                </form>
+                            </div>  -->
+<form method="POST" action="/searcDef">
+	{% csrf_token %}
+Lookup a word: <input type="text" name="textfield">
+    <button type="submit">Upload text</button>
+</form>
+
+
+{% if data %}
+    {% for key, value in data %}
+    <tr>
+        <h1>{{ key }}:</h1> 
+    </tr>
+    <tr>
+    	{% for link in value %}
+		    <li>{{ link }}</li>
+		{% endfor %}
+        <!-- <td> {{ value }} </td> -->
+    </tr>
+    
+	{% endfor %}	
+{% else %}
+    <strong>You haven't looked for anything yet.</strong>
+{% endif %}
+
+{% if selfdict %}
+    {% for key, value in selfdict %}
+    <tr>
+        <h1>{{ key }}:</h1> 
+    </tr>
+    <tr>
+    	{% for link in value %}
+		    <li>{{ link }}</li>
+		{% endfor %}
+        <!-- <td> {{ value }} </td> -->
+    </tr>
+    
+	{% endfor %}	
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="mui-tabs__pane" id="pane-justified-1.2"></div>
+{% endblock %}

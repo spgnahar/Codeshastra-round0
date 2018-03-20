@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3></h3>
+
+   
+    <div class="post row">
+        <div class="col-2 date">
+            <h2>{{ question.name }}</h2><hr>
+        </div>
+        <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                         <div class="col-sm-8 col-sm-offset-2 text">
+                           <h4> Answer this question</h4>
+                            <div class="description">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                            <div class="form-top">
+                                
+                                
+                            </div>
+                            <div class="form-bottom contact-form">
+                            
+                                <form role="form" action="/sendAns/{{question.qid}}" method="post">{% csrf_token %}
+                                    
+                                    <div class="form-group">
+                                        <label class="sr-only" for="contact-email">Answer:</label>
+                                        <input type="text" name="ansname" placeholder="Enter your answer here..." class="ansname form-control" id="ansname">
+                                    </div>
+                                    
+                                    <button type="submit" class="btn">Submit Answer</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+</div>
+    </div><br/>
+    <h3>Submitted answer(s)</h3>
+<div>
+{% for question in answer %}
+    <h3>{{ question.name }}<h3>
+     <p>
+     </p>
+     
+{% endfor %}
+</div>
+   
+    
+    
+{% endblock %}

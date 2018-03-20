@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+<div class="top-content">
+            
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-1 text">
+                            <div class="description">
+                                <!--    -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-1 form-box">
+                            <div class="form-top">
+                            	
+
+<ul class="mui-tabs__bar mui-tabs__bar--justified">
+  <li class="mui--is-active"><a a href="/jargon" data-mui-toggle="tab" data-mui-controls="pane-justified-1">JARGON</a></li>
+  <li><a a href="/forum" data-mui-toggle="tab" data-mui-controls="pane-justified-2">FORUM</a></li>
+</ul>
+<div class="mui-tabs__pane" id="pane-justified-2">Pane-2</div>
+<ul class="mui-tabs__bar mui-tabs__bar--justified">
+  <li><a a href="/define" data-mui-toggle="tab" data-mui-controls="pane-justified-1.1">DEFINITION</a></li>
+  <li class="mui--is-active"><a a href="/youtube" data-mui-toggle="tab" data-mui-controls="pane-justified-1.2">YOUTUBE</a></li>
+  <li><a a href="/courses" data-mui-toggle="tab" data-mui-controls="pane-justified-1.2">COURSERA</a></li>
+</ul>
+<div class="mui-tabs__pane" id="pane-justified-1.1">Pane-1 hveq </div>
+<div class="mui-tabs__pane mui--is-active" id="pane-justified-1.2">
+
+</br>
+<form method="POST" action="/search">
+	{% csrf_token %}
+Let YouTube help you: <input type="text" name="textfield">
+    <button type="submit">Upload text</button>
+</form>
+{% if data %}
+    {% for key, value in data %}
+    <tr>
+        <h1>{{ key }}:</h1> 
+    </tr>
+    {% for element in value %}
+    <tr>
+    	{% for part in element %}
+    	{% if 'jpg' not in part %}
+    	{% if 'youtube' not in part %}
+    		<h3>{{part}}</h3>
+    	{% endif %}
+    	{% endif %}
+    	{% if 'jpg' in part %}
+    	<img src = {{part}}>
+    </br>
+    	{% endif %}
+    	{% if 'youtube' in part %}
+    	<a href={{part}}>{{part}}</a></br></br>
+    	{% endif %}
+    	{% endfor %}
+    	{% endfor %}
+    </tr>
+    
+	{% endfor %}
+{% else %}
+    <strong>You haven't looked for anything yet.</strong>
+{% endif %}
+
+
+
+</div>
+{% endblock %}
