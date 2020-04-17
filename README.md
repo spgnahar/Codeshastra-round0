@@ -22,3 +22,13 @@ Functionalities of the Jargon:
 1. Definition - search any keyword and you get the formal definition for the same using the help of PyDictionary. One can also add their own definitions for other people to see.
 2. Youtube Search - search any keyword and get a list of related videos, playlists and channels.
 3. Coursera Search - search any keyword and get a list of all relevant courses for that keyword.
+
+![alt_text](https://github.com/spgnahar/Inventory-Management-Website/blob/master/Screenshots/forum.png)
+
+![alt_text](https://github.com/spgnahar/Inventory-Management-Website/blob/master/Screenshots/jargoncs.png)
+
+![alt_text](https://github.com/spgnahar/Inventory-Management-Website/blob/master/Screenshots/jargondef.png)
+
+![alt_text](https://github.com/spgnahar/Inventory-Management-Website/blob/master/Screenshots/jargonyt.png)
+
+![alt_text](https://github.com/spgnahar/Inventory-Management-Website/blob/master/Screenshots/ques.png)
